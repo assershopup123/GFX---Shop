@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFX Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg"></div>
+
+    <!-- زر اللغة الصغير -->
+    <div class="lang-btn" onclick="toggleLangMenu()">
+        🌐
+    </div>
+
+    <!-- Language Menu - أشهر لغات العالم -->
+    <div class="lang-menu" id="langMenu">
+        <button onclick="setLang('ar')">🇪🇬 العربية</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('fr')">🇫🇷 Français</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('zh')">🇨🇳 中文</button>
+        <button onclick="setLang('ru')">🇷🇺 Русский</button>
+        <button onclick="setLang('de')">🇩🇪 Deutsch</button>
+    </div>
+
+    <header>
+        <h1 id="title">🔥 GFX Shop</h1>
+        <p id="subtitle">أفضل تصميمات احترافية</p>
+        <a href="order.html" class="btn" id="orderBtn">اطلب الآن 🎮</a>
+    </header>
+
+    <section>
+        <h2 id="galleryTitle">🎨 أعمالي</h2>
+        <div class="gallery-grid">
+            <img src="images/gfx1.jpg" onclick="openImg(this)" alt="GFX 1">
+            <img src="images/gfx2.jpg" onclick="openImg(this)" alt="GFX 2">
+            <img src="images/gfx3.jpg" onclick="openImg(this)" alt="GFX 3">
+            <img src="images/gfx4.jpg" onclick="openImg(this)" alt="GFX 4">
+        </div>
+    </section>
+
+    <div id="popup">
+        <img id="popup-img" alt="Enlarged Image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

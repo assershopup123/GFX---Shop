@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اطلب GFX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg"></div>
+
+    <!-- زر اللغة الصغير -->
+    <div class="lang-btn" onclick="toggleLangMenu()">
+        🌐
+    </div>
+
+    <!-- Language Menu -->
+    <div class="lang-menu" id="langMenu">
+        <button onclick="setLang('ar')">🇪🇬 العربية</button>
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('fr')">🇫🇷 Français</button>
+        <button onclick="setLang('es')">🇪🇸 Español</button>
+        <button onclick="setLang('zh')">🇨🇳 中文</button>
+        <button onclick="setLang('ru')">🇷🇺 Русский</button>
+        <button onclick="setLang('de')">🇩🇪 Deutsch</button>
+    </div>
+
+    <div class="panel">
+
+        <h1 id="orderTitle">🎨 اطلب تصميمك</h1>
+        <p id="orderDesc">املأ البيانات وسيتم إرسال الطلب</p>
+
+        <a href="https://discord.gg/WJHyCTe8mD" target="_blank" class="discord-btn" id="discordLink">💬 انضم لسيرفر الديسكورد</a>
+
+        <form action="https://formsubmit.co/aser2gamer946@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="طلب GFX جديد من الموقع">
+            <input type="hidden" name="_next" value="https://yourdomain.com/index.html?success=1">
+            <input type="hidden" name="_url" value="https://yourdomain.com/order.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none;">
+
+            <input type="text" name="name" id="nameInput" placeholder="اسمك" required>
+            <input type="email" name="email" id="emailInput" placeholder="إيميلك">
+            <input type="text" name="discord" id="discordInput" placeholder="Discord" required>
+
+            <div class="gfx-options">
+                <label id="serviceLabel">عدد الصور المطلوبة</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="1" id="opt1">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text" id="text1">1 صورة</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="2" id="opt2" checked>
+                        <span class="radio-circle"></span>
+                        <span class="radio-text" id="text2">2 صورتين</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="3" id="opt3">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text" id="text3">3 صور</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="4" id="opt4">
+                        <span class="radio-circle"></span>
+                        <span class="radio-text" id="text4">4 صور</span>
+                    </label>
+                </div>
+            </div>
+
+            <textarea name="details" id="detailsInput" placeholder="تفاصيل الطلب" required></textarea>
+
+            <button type="submit" id="sendBtn" class="send-btn">إرسال 🚀</button>
+        </form>
+
+        <!-- طرق الدفع -->
+        <div class="payment-methods">
+            <p id="paymentTitle">طرق الدفع المتاحة</p>
+            <div class="payment-icons">
+                <span>💳 فيزا / ماستركارد</span>
+                <span>📱 فودافون كاش</span>
+                <span>🏦 تحويل بنكي</span>
+                <span>💰 USDT (TRC20)</span>
+            </div>
+        </div>
+
+        <a href="index.html" id="backBtn" class="btn back-btn">رجوع</a>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

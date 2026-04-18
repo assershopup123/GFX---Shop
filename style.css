@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap');
+
+body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Cairo', Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Background */
+.bg {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 20%, #1a0022, #050505 80%);
+    z-index: -3;
+    overflow: hidden;
+}
+
+.bg::before {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, #00d4ff, transparent 65%);
+    filter: blur(180px);
+    opacity: 0.18;
+    animation: bgmove 40s infinite linear;
+    top: -300px;
+    left: -300px;
+}
+
+@keyframes bgmove {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(150px, 120px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Text */
+h1, h2 {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+p {
+    color: #b0b0b0;
+    line-height: 1.8;
+}
+
+/* زر اللغة الصغير مع أنيميشن محسن */
+.lang-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.lang-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    transform: scale(1.18) rotate(25deg);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+}
+
+/* قائمة اللغات */
+.lang-menu {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1000;
+    background: rgba(10, 10, 15, 0.95);
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+html[dir="ltr"] .lang-btn,
+html[dir="ltr"] .lang-menu {
+    left: auto;
+    right: 20px;
+}
+
+.lang-menu button {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Cairo', sans-serif;
+}
+
+.lang-menu button:hover {
+    background: #00d4ff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Panel */
+.panel {
+    width: 370px;
+    max-width: 92%;
+    margin: 70px auto;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 32px 28px;
+    border-radius: 24px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.12);
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(90deg, #00d4ff, #0099cc);
+    color: #000;
+    padding: 14px 30px;
+    border-radius: 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 700;
+    transition: 0.3s;
+    margin-top: 15px;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 35px rgba(0, 212, 255, 0.6);
+}
+
+.send-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 17.5px;
+    color: #000;
+    background: linear-gradient(135deg, #00d4ff, #8a2be2);
+    background-size: 300% 300%;
+    animation: gradientMove 6s infinite;
+    margin-top: 20px;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.discord-btn {
+    background: #5865F2;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    margin: 15px 0 20px 0;
+    transition: 0.3s;
+}
+
+.discord-btn:hover {
+    background: #4752c4;
+    transform: translateY(-3px);
+}
+
+/* Inputs */
+input, textarea {
+    width: 100%;
+    margin: 12px 0;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
+}
+
+/* Radio Group */
+.gfx-options {
+    margin: 30px 0 25px 0;
+}
+
+.gfx-options label#serviceLabel {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 16.5px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.radio-group {
+    background: rgba(255,255,255,0.04);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 18px 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.radio-option:last-child {
+    border-bottom: none;
+}
+
+.radio-option:hover {
+    background: rgba(0, 212, 255, 0.08);
+}
+
+.radio-circle {
+    width: 24px;
+    height: 24px;
+    border: 2.5px solid #00d4ff;
+    border-radius: 50%;
+    margin-right: 18px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-option input[type="radio"]:checked + .radio-circle {
+    background: #00d4ff;
+    box-shadow: 0 0 18px #00d4ff;
+}
+
+.radio-option input[type="radio"]:checked + .radio-circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    background: #050505;
+    border-radius: 50%;
+}
+
+.radio-text {
+    font-size: 16.5px;
+    font-weight: 500;
+    color: #e0e0e0;
+}
+
+.radio-option:hover .radio-text {
+    color: #ffffff;
+}
+
+html[dir="rtl"] .radio-option { flex-direction: row; }
+html[dir="rtl"] .radio-circle { margin-right: 18px; margin-left: 0; }
+html[dir="ltr"] .radio-option { flex-direction: row-reverse; }
+html[dir="ltr"] .radio-circle { margin-right: 0; margin-left: 18px; }
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px;
+    padding: 30px 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.08) translateY(-8px);
+    border-color: #00d4ff;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+}
+
+/* Payment Methods */
+.payment-methods {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#paymentTitle {
+    font-size: 15.5px;
+    color: #aaaaaa;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.payment-icons span {
+    background: rgba(255,255,255,0.06);
+    padding: 9px 16px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* Popup */
+#popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#popup.show {
+    display: flex;
+}
+
+#popup img {
+    max-width: 90%;
+    max-height: 92vh;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+}
+
+/* Back Button & Responsive */
+.back-btn {
+    margin-top: 30px;
+    display: block;
+    opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+    .panel { width: 92%; padding: 25px 20px; }
+    .lang-btn { width: 44px; height: 44px; font-size: 22px; }
+}
+
+/* LTR Support */
+html[dir="ltr"] body,
+html[dir="ltr"] header,
+html[dir="ltr"] section,
+html[dir="ltr"] .panel {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+html[dir="ltr"] .lang-btn,
+html[dir="ltr"] .lang-menu {
+    left: auto;
+    right: 20px;
+}
